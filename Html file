@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SATTVANNA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">SATTVANNA</div>
+        <div class="sign-in">
+            <a href="#"><i class="fas fa-user"></i> Sign In</a>
+        </div>
+    </header>
+
+    <section class="main-content">
+        <h1>Order Staples & Organics Fresh From Farm To Your Home</h1>
+        <div class="delivery-location">
+            <label for="delivery-location">Enter your delivery location:</label>
+            <select id="delivery-location">
+                <option value="Chennai">Chennai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Kochi">Kochi</option>
+                <option value="Madurai">Madurai</option>
+                <option value="Coimbatore">Coimbatore</option>
+                <option value="Vizag">Vizag</option>
+                <option value="Mysore">Mysore</option>
+            </select>
+        </div>
+
+        <h2>Fresh From Our Fields</h2>
+
+        <div class="product-layouts">
+            <div class="product-item" style="background-image: url('images/samba-masuri.jpg');">
+                <p>Samba Masuri</p>
+            </div>
+            <div class="product-item" style="background-image: url('images/sona-masuri.jpg');">
+                <p>Sona Masuri</p>
+            </div>
+            <div class="product-item" style="background-image: url('images/nellore-masuri.jpg');">
+                <p>Nellore Masuri</p>
+            </div>
+            <div class="product-item" style="background-image: url('images/bhasmati-rice.jpg');">
+                <p>Basmati Rice</p>
+            </div>
+            <div class="product-item" style="background-image: url('images/rajendra-rice.jpg');">
+                <p>Rajendra Rice</p>
+            </div>
+            <div class="product-item" style="background-image: url('images/black-red-rice.jpg');">
+                <p>Black & Red Rice</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Get the SATTVANNA App Now</h3>
+        <div class="app-links">
+            <a href="https://apps.apple.com" target="_blank" class="app-store">App Store</a>
+            <a href="https://play.google.com" target="_blank" class="play-store">Play Store</a>
+        </div>
+    </footer>
+</body>
+</html>
