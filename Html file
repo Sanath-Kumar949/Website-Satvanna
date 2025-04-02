@@ -6,6 +6,7 @@
     <title>SATTVANNA</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-datatables@0.22.10/dist/vanilla-dataTables.min.js"></script> <!-- Add JavaScript for dropdown search functionality -->
 </head>
 <body>
     <header>
@@ -19,38 +20,36 @@
         <h1>Order Staples & Organics Fresh From Farm To Your Home</h1>
         <div class="delivery-location">
             <label for="delivery-location">Enter your delivery location:</label>
-            <select id="delivery-location">
-                <option value="Chennai">Chennai</option>
-                <option value="Bangalore">Bangalore</option>
-                <option value="Hyderabad">Hyderabad</option>
-                <option value="Kochi">Kochi</option>
-                <option value="Madurai">Madurai</option>
-                <option value="Coimbatore">Coimbatore</option>
-                <option value="Vizag">Vizag</option>
-                <option value="Mysore">Mysore</option>
-            </select>
+            <input type="text" id="delivery-location" placeholder="Type a city name" oninput="filterLocations()">
+            <ul id="location-list" class="location-list"></ul>
         </div>
 
         <h2>Fresh From Our Fields</h2>
 
         <div class="product-layouts">
             <div class="product-item" style="background-image: url('images/samba-masuri.jpg');">
-                <p>Samba Masuri</p>
+                <p class="product-name">Samba Masuri</p>
+                <p class="product-price">₹100 /kg</p>
             </div>
             <div class="product-item" style="background-image: url('images/sona-masuri.jpg');">
-                <p>Sona Masuri</p>
+                <p class="product-name">Sona Masuri</p>
+                <p class="product-price">₹120 /kg</p>
             </div>
             <div class="product-item" style="background-image: url('images/nellore-masuri.jpg');">
-                <p>Nellore Masuri</p>
+                <p class="product-name">Nellore Masuri</p>
+                <p class="product-price">₹110 /kg</p>
             </div>
             <div class="product-item" style="background-image: url('images/bhasmati-rice.jpg');">
-                <p>Basmati Rice</p>
+                <p class="product-name">Basmati Rice</p>
+                <p class="product-price">₹150 /kg</p>
             </div>
             <div class="product-item" style="background-image: url('images/rajendra-rice.jpg');">
-                <p>Rajendra Rice</p>
+                <p class="product-name">Rajendra Rice</p>
+                <p class="product-price">₹130 /kg</p>
             </div>
             <div class="product-item" style="background-image: url('images/black-red-rice.jpg');">
-                <p>Black & Red Rice</p>
+                <p class="product-name">Black & Red Rice</p>
+                <p class="product-price">₹140 /kg</p>
             </div>
         </div>
     </section>
@@ -58,9 +57,48 @@
     <footer>
         <h3>Get the SATTVANNA App Now</h3>
         <div class="app-links">
-            <a href="https://apps.apple.com" target="_blank" class="app-store">App Store</a>
-            <a href="https://play.google.com" target="_blank" class="play-store">Play Store</a>
+            <!-- App Store Icon -->
+            <a href="https://apps.apple.com" target="_blank" class="app-store">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/App_Store_logo_2018.png" alt="App Store">
+            </a>
+            <!-- Play Store Icon -->
+            <a href="https://play.google.com" target="_blank" class="play-store">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Google_Play_Store_icon_%282018%29.png" alt="Play Store">
+            </a>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2025 SATTVANNA | Site developed in 2025</p>
         </div>
     </footer>
+
+    <script>
+        // List of cities from Telangana and Andhra Pradesh
+        const locations = [
+            "Hyderabad", "Warangal", "Vijayawada", "Visakhapatnam", 
+            "Nellore", "Guntur", "Kakinada", "Khammam", "Rajahmundry",
+            "Srikakulam", "Kadapa", "Bhimavaram", "Tirupati"
+        ];
+
+        function filterLocations() {
+            const input = document.getElementById('delivery-location').value.toLowerCase();
+            const filteredLocations = locations.filter(location => location.toLowerCase().includes(input));
+            showLocationSuggestions(filteredLocations);
+        }
+
+        function showLocationSuggestions(locations) {
+            const listElement = document.getElementById('location-list');
+            listElement.innerHTML = '';
+            locations.forEach(location => {
+                const listItem = document.createElement('li');
+                listItem.textContent = location;
+                listItem.onclick = function() {
+                    document.getElementById('delivery-location').value = location;
+                    listElement.innerHTML = ''; // Hide the list after selection
+                };
+                listElement.appendChild(listItem);
+            });
+        }
+    </script>
 </body>
 </html>
