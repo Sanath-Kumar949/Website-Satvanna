@@ -185,7 +185,7 @@ footer {
     background-color: #000000; /* Black background for footer */
     color: #fff;
     text-align: center;
-    padding: 50px 20px;
+    padding: 30px 20px; /* Reduced padding for smaller footer */
     border-top: 2px solid #ddd;
     margin-top: 50px;
     border-radius: 10px 10px 0 0; /* Add top border radius */
@@ -204,6 +204,24 @@ footer h3 {
 .app-links a {
     margin: 0 15px;
     display: inline-block;
+}
+
+.app-links i {
+    font-size: 48px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.app-links i:hover {
+    transform: scale(1.1);
+}
+
+/* Hover effects for specific icons */
+.app-store:hover i {
+    color: #007AFF; /* App Store Blue */
+}
+
+.play-store:hover i {
+    color: #34A853; /* Google Play Green */
 }
 
 .app-links img {
